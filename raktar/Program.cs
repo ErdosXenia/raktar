@@ -10,6 +10,8 @@ namespace raktar
     {
         static void Main(string[] args)
         {
+
+            Console.ReadKey();
         }
     }
 }
