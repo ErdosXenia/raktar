@@ -32,11 +32,20 @@ namespace raktar
 			set { email = value; }
 		}
 
+		private List<tetel> tetelek;
+
+		public void TetelHozzaad(string kod, int db)
+		{
+			tetelek.Add(new tetel(kod, db));
+		}
+
 		public megrendeles(string datum, string rszama, string email)
 		{
 			this.datum = datum;
 			this.rszama = rszama;
 			this.email = email;
+
+			tetelek = new List<tetel>();
 			
 		}
 

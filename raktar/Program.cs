@@ -35,12 +35,18 @@ namespace raktar
 
             while (!megr.EndOfStream)
             {
-                string[] sor = megr.ReadLine().Split(';');
+                string sor = megr.ReadLine();
+                string[] adat = sor.Split(';');
 
-                if (sor[0] == "M")
+                if (adat[0] == "M")
                 {
-                    megrendelesek.Add(new megrendeles(sor[1], sor[2], sor[3]));
-                }   
+                    megrendelesek.Add(new megrendeles(adat[1], adat[2], adat[3]));
+                }
+                else
+                {
+                    //megrendelesek[megrendelesek.Count - 1].termekek.Add(sor);
+                    megrendelesek[megrendelesek.Count - 1].TetelHozzaad(adat[2], Convert.ToInt32(adat[3]));
+                }
             }
             megr.Close();
         }
@@ -58,10 +64,10 @@ namespace raktar
 
             BeolvMegrendeles();
 
-            foreach (var m in megrendelesek)
+            /*foreach (var m in megrendelesek)
             {
                 Console.WriteLine($"{m.Datum} - {m.Rszama} - {m.Email}");
-            }
+            }*/
 
             Console.ReadKey();
         }
